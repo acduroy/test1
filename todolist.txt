@@ -17,3 +17,4 @@
 16. DHCP
 17. NIC HVA RAID
 18. SSD NVMe
+19. Happy hour
