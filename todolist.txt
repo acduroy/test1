@@ -11,3 +11,8 @@
 11. Ubuntu OS Cert
 12. RedHat Cert
 13. Demo
+14. IPMI
+15. DNS
+16. DHCP
+17. NIC HVA RAID
+18. SSD NVMe
