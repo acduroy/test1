@@ -1,0 +1,1016 @@
+https://fabianlee.org/2018/09/12/kvm-building-the-latest-ovmf-firmware-for-virtual-machines/
+
+--------------
+
+supermicro@kvm500:~$ clear
+
+supermicro@kvm500:~$ 
+supermicro@kvm500:~$ 
+supermicro@kvm500:~$ history
+  142  sudo vi /etc/network/interfaces
+  143  sudo ip addr flush enp1s0f1
+  144  sudo ip link set enp1s0f1 down
+  145  sudo ip link set enp1s0f1 up
+  146  ifconfig
+  147  sudo ifup enp1s0f1
+  148  ifconfig
+  149  ping 10.100.251.1
+  150  ping 10.100.251.2
+  151  ping 10.100.251.3
+  152  ping 10.100.251.4
+  153  ifconfig
+  154  shutdown -h now
+  155  clear
+  156  tcpdump -i enp130s0f0
+  157  clear
+  158  sudo tcpdump -i enp130s0f0
+  159  clear
+  160  sudo tcpdump -i enp1s0f0
+  161  clear
+  162  sudo tcpdump -i enns3
+  163  sudo tcpdump -i ens3
+  164  clear
+  165  sudo tcpdump -i enp130s0f0
+  166  ifconfig
+  167  cat /etc/network/interfaces
+  168  ping 10.100.251.1
+  169  ping 10.100.251.2
+  170  ping 10.100.251.3
+  171  ping 10.100.251.4
+  172  clear
+  173  ping 10.100.251.1
+  174  clear
+  175  ping 10.100.251.1 -c 5
+  176  ping 10.100.251.2 -c 5
+  177  ping 10.100.251.3 -c 5
+  178  ping 10.100.251.4 -c 5
+  179  clear
+  180  ping 10.100.251.1 -c 5
+  181  ping 10.100.251.2 -c 5
+  182  ping 10.100.251.3 -c 5
+  183  ping 10.100.251.4 -c 5
+  184  clear
+  185  cat /etc/network/interfaces
+  186  virt-manager 
+  187  ifconfig
+  188  ip a | grep inet
+  189  ls
+  190  ssh 10.100.251.4
+  191  ifconfig
+  192  cat /etc/network/interfaces
+  193  ping 10.100.251.4
+  194  ifconfig
+  195  ssh 10.100.251.4
+  196  sudo apt install -y tcpdump
+  197  ssh 10.100.251.1
+  198  ping 10.100.251.1
+  199  sudo iptables -L -n
+  200  route
+  201  ip a | grep inet
+  202  ls
+  203  touch clear-iptables.sh
+  204  sudo chmod +x clear-iptables.sh 
+  205  vi clear-iptables.sh 
+  206  ls
+  207  ./clear-iptables.sh 
+  208  ls
+  209  sudo vi /etc/network/interfaces
+  210  sudo service networking restart
+  211  ip a | grep inet
+  212  sudo reboot now
+  213  virt-manager
+  214  sudo iptables-save
+  215  sudo tcpdump -i 
+  216  ip a 
+  217  ip a | grep inet
+  218  ip a | grep enp1s
+  219  sudo vi /etc/network/interfaces
+  220  ip a | grep enp
+  221  ethtool --identify enp130s0f0
+  222  sudo ethtool --identify enp130s0f0
+  223  ip a | grep enp
+  224  sudo service networking restart
+  225  ip a | grep inet
+  226  ip a | grep enp
+  227  sudo tcpdump -i enp130s0f0
+  228  sudo vi /etc/network/interfaces
+  229  ping 10.100.251.3
+  230  sudo vi /etc/network/interfaces
+  231  sudo service networking restart
+  232  ping 10.100.251.1
+  233  sudo reboot now
+  234  ssh 10.100.251.4
+  235  ping 10.100.251.4
+  236  ssh 10.100.251.1
+  237  ifconfig
+  238  ip a | grep inet
+  239  ssh 10.100.251.1
+  240  ssh 10.100.251.4
+  241  ssh 10.100.251.5
+  242  ssh 10.100.251.1
+  243  ping 10.100.251.4
+  244  ifconfig
+  245  sudo ethtool --identify enp130s0f0
+  246  ssh 10.100.251.4
+  247  ssh 10.100.251.75
+  248  ip a
+  249  history
+  250  ip a
+  251  ssh 10.100.251.75
+  252  virt-manager 
+  253  cat /etc/network/interfaces
+  254  ifconfig enp130s0f0
+  255  brctl show
+  256  ifconfig'
+  257  ifconfig
+  258  cd Downloads/
+  259  ll
+  260  sudo dpkg -i teamviewer_13.1.8286_amd64.deb 
+  261  sudo apt-get install -f -y
+  262  cd
+  263  scp -r 172.31.37.186:~/script-to-run/maas-direct-install.sh ~/
+  264  ll
+  265  cd
+  266  cd Downloads/
+  267  ll
+  268  clear
+  269  ifconfig
+  270  clear
+  271  ifconfig
+  272  ifconfig -a |less
+  273  ethtool --identify enp1s0f1
+  274  sudo ethtool --identify enp1s0f1
+  275  sudo vi /etc/network/interfaces
+  276  brctl show
+  277  ifconfig
+  278  ifconfig -a |less
+  279  ethtool --identify enp130s0f1
+  280  sudo ethtool --identify enp130s0f1
+  281  reboot
+  282  ssh cert@10.100.251.106
+  283  ssh certuser@10.100.251.106
+  284  brctl show
+  285  brctl addbr br252
+  286  sudo brctl addbr br252
+  287  brctl show
+  288  sudo vi /etc/network/interfaces
+  289  sudo ip addr flush enp130s0f1
+  290  sudo ip addr flush br252
+  291  sudo ip link set enp130s0f1 up
+  292  sudo ip link set enp130s0f1 down
+  293  sudo ip link set enp130s0f1 up
+  294  sudo ip link set br252 up
+  295  sudo ip link set br252 down
+  296  sudo ip link set br252 up
+  297  ifconfig br252
+  298  sudo ifdown enp130s0f1
+  299  sudo ifup enp130s0f1
+  300  sudo ifdown enp130s0f1
+  301  sudo ifup enp130s0f1
+  302  sudo ifup br252
+  303  sudo ifdown br252
+  304  sudo ifup br252
+  305  ifconfig br252
+  306  ifconfig enp130s0f1
+  307  ifconfig
+  308  ssh 172.31.32.218
+  309  ping 172.31.32.218
+  310  ifconfig
+  311  sshcertuser@10.100.251.106
+  312  ssh certuser@10.100.251.106
+  313  ifconfig |less
+  314  brctl show
+  315  ethtool br252
+  316  ethtool enp130s0f1
+  317  sudo ethtool enp130s0f1
+  318  exit
+  319  ifconfig
+  320  lspci -s enp130s0f1 -vvv |grep -i "Single Root I/O Virtualization
+  321  lspci -s enp130s0f1 -vvv |grep -i "Single Root I/O Virtualization"
+  322  lspci -s enp130s0f1 
+  323  ifconfig
+  324  iperf3
+  325  sudo apt-get install iperf3 -y
+  326  ifconfig
+  327  brctl show
+  328  iperf3 -s -B 10.100.251.2
+  329  ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  330  lear
+  331  clear
+  332  ifconfig
+  333  man lspci 
+  334  lspci -s enp1s0f0
+  335  man lspci
+  336  lspci -s 0
+  337  lspci -s 0 -vvv |grep -i "Single Root I/O Virtualization"
+  338  lspci -s 0 -vvv |less
+  339  virt-manager
+  340  brctl show
+  341  ifconfig enp130s0f1
+  342  ifconfig
+  343  ping 10.100.252.254
+  344  sudo virsh net-list
+  345  ifconfig -a
+  346  brctl show
+  347  brctl addbr br252
+  348  sudo brctl addbr br252
+  349  brctl show
+  350  sudo vi /etc/network/interfaces
+  351  sudo ip addr flush enp130s0f1
+  352  sudo ifup enp130s0f1
+  353  sudo ifdown enp130s0f1
+  354  sudo ifup enp130s0f1
+  355  sudo ip addr flush br252
+  356  sudo ifup br252
+  357  sudo ifdown br252
+  358  sudo ifup br252
+  359  ifconfig br252
+  360  brctl show
+  361  brctl delbr br252
+  362  sudo brctl delbr br252
+  363  sudo ifdown br252
+  364  brctl delbr br252
+  365  sudo brctl delbr br252
+  366  brctl show
+  367  sudo brctl addbr br-10G
+  368  brctl show
+  369  sudo vi /etc/network/interfaces
+  370  sudo ip addr flush br-10G
+  371  sudo ifup br-10G
+  372  sudo ifdown br-10G
+  373  sudo ifup br-10G
+  374  ifconfig br-10G
+  375  brctl show
+  376  sudo ifdown br-10G 
+  377  brctl delbr br-10G
+  378  sudo brctl delbr br-10G
+  379  brctl show
+  380  sudo vi /etc/network/interfaces
+  381  sudo ip addr flush enp130s0f1
+  382  sudo ifdown enp130s0f1
+  383  sudo ifup enp130s0f1
+  384  sudo vi /etc/network/interfaces
+  385  virsh edit GUEST
+  386  virsh edit vLTS-rhel7
+  387  ifconfig enp130s0f1
+  388  ifconfig br251
+  389  ll
+  390  cd remote-sut/
+  391  ll
+  392  mv kdump-usb-test.png interactive-test.png
+  393  ll
+  394  ifconfig
+  395  ll
+  396  scp -r certuser@10.100.251.106:~/Pictures/Screenshot* ~/
+  397  ll
+  398  mkdir remote-sut
+  399  cd remote-sut/
+  400  ll
+  401  scp -r certuser@10.100.251.106:~/Pictures/kdump-usb-test.png /home/supermicro/remote-sut/
+  402  scp -r certuser@10.100.251.106:~/Pictures/non-interactive-test.png /home/supermicro/remote-sut/
+  403  scp -r certuser@10.100.251.106:~/Pictures/Screen*.png /home/supermicro/remote-sut/
+  404  ifconfig
+  405  cat /etc/network/interfaces
+  406  sudo vi /etc/network/interfaces
+  407  sudo ip addr flush enp130s0f1
+  408  sudo ip addr flush br252
+  409  sudo brctl addbr br252
+  410  sudo ifup enp130s0f1
+  411  sudo ifdown enp130s0f1
+  412  sudo ifup enp130s0f1
+  413  sudo ifup br252
+  414  sudo ifdown br252
+  415  sudo ifup br252
+  416  ifconfig br252
+  417  ifconfig enp130s0f1
+  418  ifconfig
+  419  ifconfig |less
+  420  ethtool --identify enp130s0f1
+  421  sudo ethtool --identify enp130s0f1
+  422  sudo ethtool --identify enp130s0f0
+  423  sudo ethtool --identify enp130s0f1
+  424  ifconfig enp130s0f1
+  425  ifconfig enp130s0f0
+  426  ip a 
+  427  ip a |grep enp130s0f0
+  428  ip a |grep enp130s0f1
+  429  ifconfig enp130s0f1
+  430  ifconfig enp130s0f0
+  431  ping 10.100.252.5
+  432  ifconfig -a |less
+  433  brctl show
+  434  lspci |grep -i eth
+  435  ip link
+  436  brctl show
+  437  sudo ifdown br251
+  438  brctl show
+  439  sudo brctl addbr br203
+  440  brctl show
+  441  sudo vi /etc/network/interfaces
+  442  sudo ip addr flush enp130s0f0 
+  443  sudo ip addr flush br203
+  444  sudo ifup br203
+  445  sudo ifup enp130s0f0
+  446  sudo ifdown br203
+  447  sudo ifdown enp130s0f0
+  448  sudo ifup br203
+  449  sudo ifup enp130s0f0
+  450  ifconfig br203
+  451  ifconfig enp130s0f0
+  452  brctl show
+  453  ifconfig
+  454  ping 8.8.8.8
+  455  ifconfig
+  456  brctl show
+  457  virt-manager
+  458  wget https://raw.githubusercontent.com/acduroy/working-scripts/master/hwcert.cfg
+  459  ll
+  460  pwd
+  461  ll hwcert.cfg 
+  462  wget https://raw.githubusercontent.com/acduroy/working-scripts/master/ks.cfg
+  463  wget https://raw.githubusercontent.com/acduroy/working-scripts/master/ws.cfg
+  464  ll
+  465  ifconfig
+  466  ifconfig eno1
+  467  ifconfig ens3
+  468  ll
+  469  cd Downloads/
+  470  ll
+  471  brctl show
+  472  sudo ip a |grep br203
+  473  sudo ip a |grep enp130s0f0
+  474  sudo ip a |grep enp130s0f1
+  475  brctl show
+  476  ifconfig br252
+  477  iperf3 -s -B 10.100.204.6
+  478  ping 172.31.36.193
+  479  clear
+  480  iperf3 -s -B 10.100.204.6
+  481  ifconfig
+  482  ifconfig -a |less
+  483  sudo vi /etc/network/interfaces
+  484  sudo ip addr flush enp129s0f1 
+  485  sudo ifup enp129s0f1 
+  486  sudo ifdown enp129s0f1 
+  487  sudo ifup enp129s0f1 
+  488  sudo ifdown enp129s0f1 
+  489  sudo ifup enp129s0f1 
+  490  ifconfig enp129s0f1
+  491  brctl show
+  492  sudo brctl addbr br253
+  493  sudo brctl show
+  494  sudo ifup br253
+  495  sudo ifdown br253
+  496  sudo ifup br253
+  497  ifconfig br253
+  498  brctl show
+  499  ifconfig
+  500  ifconfig |less
+  501  brctl show
+  502  ifconfig enp130s0f1
+  503  brctl show
+  504  cd /etc/network
+  505  ll
+  506  sudo vi interfaces
+  507  ifconfig -a |less
+  508  sudo ethtool --identify enp129s0f0
+  509  sudo ethtool --identify enp129s0f1
+  510  ip -a |grep enp129s0f0
+  511  ip a |grep -i enp129s0f0
+  512  ip a |grep -i enp129s0f1
+  513  ifcdonfig enp129s0f0
+  514  ifconfig enp129s0f0
+  515  brctl show
+  516  sudo vi interfaces
+  517  iperf3 
+  518  sudo ip addr flush enp129s0f0
+  519  sudo ifup enp129s0f0
+  520  sudo ifdown enp129s0f0
+  521  sudo ifup enp129s0f0
+  522  ifconfig enp129s0f0
+  523  ip a |grep enp129s0f0
+  524  ifconfig -a |less
+  525  sudo ip link set enp129s0f0 up
+  526  sudo ip link set enp129s0f0 down 
+  527  sudo ip link set enp129s0f0 up
+  528  ifconfig enp129s0f0
+  529  sudo ethtool enp129s0f0 
+  530  sudo ethtool --identify enp129s0f0 
+  531  ip a |grep enp129s0f0
+  532  ip a |grep enp129s0f1
+  533  ip a |grep enp129s0f0
+  534  ip a |grep enp129s0f1
+  535  ip a |grep enp129s0f0
+  536  sudo ethtool --identify enp129s0f0 
+  537  sudo ethtool --identify enp129s0f1
+  538  ip a |grep enp129s0f0
+  539  ip a |grep enp129s0f1
+  540  ip a |grep enp129s0f0
+  541  ip a |grep enp129s0f1
+  542  ifconfog
+  543  ifconfig
+  544  ifconfig enp129s0f0
+  545  ll
+  546  brctl show
+  547  cat interfaces
+  548  cat interfaces |less
+  549  reboot
+  550  virt-manager
+  551  man cp
+  552  man mkdir
+  553  ifconfig
+  554  sudo ethtool enp129s0f1 |grep -i speed 
+  555  brctl show
+  556  cd Pictures/
+  557  ll
+  558  cd
+  559  ifconfig
+  560  brctl show
+  561  reboot
+  562  cd Pictures/
+  563  ll
+  564  virt-manager
+  565  brctl show
+  566  ifconfig
+  567  hostname
+  568  virsh
+  569  virsh list --all
+  570  sudo virsh shutdown vPXE
+  571  virsh dumpxml vPXE > /tmp/vPXE.xml
+  572  scp /tmp/vPXE.xml kvm400:/tmp/vPXE.xml
+  573  scp /tmp/vPXE.xml 172.31.40.98:/tmp/vPXE.xml
+  574  cd /var/lib/libvirt/images/
+  575  ll
+  576  su -
+  577  ll
+  578  sudo ll
+  579  su -
+  580  exit
+  581  lsscsi
+  582  sudo apt-get install lsscsi
+  583  clear
+  584  lsscsi
+  585  su
+  586  sudo -i
+  587  virsh start vPXE 
+  588  reboot
+  589  ll
+  590  sudo apt-get install putty
+  591  virt-manager
+  592  reboot
+  593  sudo apt-get install putty -y
+  594  sudo apt-get update
+  595  sudo apt-get install putty -y
+  596  virt-manager
+  597  cd Pictures/
+  598  ll
+  599  cd 
+  600  cd Downloads/
+  601  ll
+  602  ping 8.8.8.8
+  603  reboot
+  604  ping 8.8.8.8
+  605  clear
+  606  virt-manager
+  607  brctl show
+  608  sudo vi /etc/network/interfaces
+  609  sudo ethtool --identify enp130s0f1
+  610  ifconfig
+  611  ifconfig -a
+  612  ifconfig -a |less
+  613  brctl show
+  614  clear
+  615  brctl show
+  616  sudo cat /etc/network/interfaces
+  617  ifconfig
+  618  ifconfig -a
+  619  brctl show
+  620  sudo ethtool --identify enp130s0f0
+  621  reboot
+  622  ifconfig
+  623  virt-manager
+  624  sudo vi /etc/network/interfaces
+  625  sudo ethtool --identify enp130s0f0
+  626  ip -a |sudo grep enp130s0f0
+  627  ip -a |grep enp130s0f0
+  628  sudo ip -a
+  629  ip -a
+  630  ip-a
+  631  ip -a
+  632  man ip
+  633  ip -a
+  634  ip -a enp130s0f0
+  635  sudo ethtool --identify enp130s0f1
+  636  ifconfig
+  637  ip a |grep enp130s0f0
+  638  ip a |grep enp130s0f1
+  639  ip a |grep enp130s0f0
+  640  brctl show
+  641  ip a |grep enp130s0f0
+  642  clear
+  643  ll
+  644  clear
+  645  virt-manager
+  646  virssh -list
+  647  virsh list
+  648  virsh net-list 
+  649  virsh net-list --all
+  650  cat isolated.xml
+  651  sudo touch isolated.xml
+  652  sudo vim isolated.xml 
+  653  virsh net-define isolated.xml
+  654  virsh net-list --all
+  655  virsh net-dumpxml isolated
+  656  virsh net-start isolated
+  657  virsh net-list --all
+  658  virsh list
+  659  virsh domiflist guest
+  660  virsh domiflist vmaas203-1604
+  661  brctl show virbrl
+  662  brctl show virbr1
+  663  brctl show virbr0
+  664  brctl show virbr2
+  665  brctl show
+  666  wget https://raw.githubusercontent.com/acduroy/bridge-network/master/whiptail-menu.sh
+  667  ll
+  668  chmod 755 whiptail-menu.sh 
+  669  ll
+  670  ./whiptail-menu.sh 
+  671  cat whiptail-menu.sh |less
+  672  ifconfig
+  673  virsh list
+  674  virsh run guest
+  675  virt-manager
+  676  brctl show
+  677  ifconfig
+  678  brctl show
+  679  virsh list --all
+  680  virsh domiflist dns-masq
+  681  virt-clone --original master-ubuntu16.04 --name super-nat --auto-clone
+  682  virsh list --all
+  683  virsh start super-nat
+  684  virsh edit super-nat
+  685  virsh domiflist super-nat
+  686  brctl show
+  687  ifconfig -a
+  688  cd /etc/network/
+  689  sudo vim interfaces
+  690  ifconfig -a |less
+  691  sudo vim interfaces
+  692  ifconfig
+  693  cd
+  694  ll
+  695  ifconfig
+  696  ll
+  697  virsh list --all
+  698  virsh edit vNAT2
+  699  sudo virsh edit vNAT2
+  700  virsh list --all
+  701  virsh edit vNAT2-rhel
+  702  virsh list --all
+  703  grep cpu /proc/stat
+  704  grep "cpu" /proc/stat
+  705  grep "cpu" /proc/stat |sudo tee userkernel.txt
+  706  ll
+  707  cat userkernel.txt |less
+  708  ./whiptail-menu.sh 
+  709  grep "cpu" /proc/stat |sudo tee userkernel.txt
+  710  cat userkernel.txt |less
+  711  history
+  712  reboot
+  713  virsh list --all
+  714  virt-manager
+  715  virsh list --all
+  716  virt-clone --original vPXE-UEFI --name master-rhel7 --auto-clone
+  717  virsh shutdown vPXE-UEFI
+  718  virsh list --all
+  719  virt-clone --original vPXE-UEFI --name master-rhel7 --auto-clone
+  720  virsh list --all
+  721  virsh start vPXE-UEFI
+  722  virsh console vPXE-UEFI
+  723  virsh list --all
+  724  cd /etc/network/
+  725  ll
+  726  cat interfaces
+  727  brctl showw
+  728  brctl show
+  729  ll
+  730  cat interfaces |less
+  731  sudo vim interfaces
+  732  sudo ip addr flush enp1s0f1
+  733  sudo ifup enp1s0f1
+  734  sudo ifdown enp1s0f1
+  735  sudo ifup enp1s0f1
+  736  ifconfig
+  737  virt-manager
+  738  reboot
+  739  virt-manager
+  740  ethtool --identify enp1s0f1
+  741  sudo ethtool --identify enp1s0f1
+  742  sudo ethtool --identify enp1s0f2
+  743  cat /etc/network/interfaces
+  744  ip l
+  745  cat /etc/network/interfaces
+  746  cd /etc/libvirt/
+  747  ll qemu.conf
+  748  sudo vim qemu.conf 
+  749  cd /usr/share/
+  750  ll edk2
+  751  ll *.efi
+  752  ll qemu*
+  753  sudo vim qemu.conf 
+  754  cd /etc/libvirt/
+  755  sudo vim qemu.conf 
+  756  ifconfig -a
+  757  ifconfig -a |less
+  758  brctl show
+  759  sudo vim /etc/network/interfaces
+  760  brctl addbr br204
+  761  sudo brctl addbr br204
+  762  brctl show
+  763  sudo ifup br204
+  764  sudo ifdown br204
+  765  sudo ifup br204
+  766  brctl show
+  767  cd
+  768  sudo apt-get install ovmf-x86_64-code.bin
+  769  sudo apt-get install ovmf
+  770  virt-manager
+  771  kvm -bios OVMF.fd
+  772  pacman -Q1 ovmf-git
+  773  apt install pacman
+  774  sudo apt install pacman
+  775  pacman -Q1 ovmf-git
+  776  sudo apt-get install ovmf-git
+  777  sudo apt-get install qemu-efi
+  778  cd /etc/libvirt/
+  779  sudo vi qemu.conf 
+  780  cd
+  781  sudo apt-get install build-essential uuid-dev iasl git gcc-5 nasm
+  782  git clone https://github.com/tianocore/edk2.git
+  783  ll
+  784  cd edk2/
+  785  ll
+  786  make -C BaseTools
+  787  export EDK_TOOLS_PATH=$(pwd)/BaseTools
+  788  . edksetup.sh BaseTools
+  789  export COMPILATION_MAX_THREADS=$((1 + $(lspcu --all -pCPU | grep -v ^# | sort | uniq | wc -l)))
+  790  lspcu
+  791  lscpu
+  792  export COMPILATION_MAX_THREADS=$((1 + $(lscpu --all -pCPU | grep -v ^# | sort | uniq | wc -l)))
+  793  perl -i -pe 's/^(ACTIVE_PLATFORM).*     /$1 = OvmfPkg\/OvmfPkgX64.dsc/x' Conf/target.txt 
+  794  perl -i -pe 's/^(TOOL_CHAIN_TAG).*     /$1 = GCC5/x' Conf/target.txt 
+  795  perl -i -pe 's/^(TOOL_CHAIN_TAG).*     /$1 = X64/x' Conf/target.txt 
+  796  perl -i -pe 's/^(TOOL_CHAIN_TAG).*     /$1 = GCC5/x' Conf/target.txt 
+  797  perl -i -pe 's/^(TARGET_ARCH).*     /$1 = X64/x' Conf/target.txt 
+  798  perl -i -pe 's/^(MAX_CONCURRENT_THREAD_NUMBER).*/\$1 =$COMPILATION_MAX_THREADS/x' Conf/target.txt 
+  799  build
+  800  cd
+  801  cd Downloads/
+  802  ll
+  803  clear
+  804  ll
+  805  sudo apt-get instaall alien
+  806  sudo apt-get install alien
+  807  ll
+  808  sudo alien edk2.git-0-20181121.786.g72e514c907.x86_64.rpm 
+  809  ll
+  810  sudo dpkg -i edk2.git_0-20181122.786_amd64.deb 
+  811  sudo apt-get install -f -y
+  812  sudo dpkg -i edk2.git_0-20181122.786_amd64.deb 
+  813  sudo apt-get install -f -y
+  814  ll
+  815  sudo alien --install edk2.git-0-20181121.786.g72e514c907.x86_64.rpm 
+  816  cd
+  817  sudo apt-get install git uuid-dev iasl nasm 
+  818  sudo aapt-get install iasl
+  819  sudo apt-get install iasl
+  820  mkdir src
+  821  cd src/
+  822  CD
+  823  cd
+  824  ll
+  825  cd edk2/
+  826  source ./edksetup.sh
+  827  make -C BaseTools/
+  828  build -a X64 -t GCC48 -b RELEASE -p OvmfPkg/OvmfPkgX64.dsc
+  829  cd CryptoPkg/
+  830  cd Library/OpensslLib/
+  831  ll Opens*
+  832  cat OpensslLibCrypto.inf 
+  833  build -a X64 -t GCC48 -b RELEASE -p OvmfPkg/OvmfPkgX64.dsc
+  834  cd 
+  835  cd edk2/
+  836  build -a X64 -t GCC48 -b RELEASE -p OvmfPkg/OvmfPkgX64.dsc
+  837  cd
+  838  cd src/
+  839  git clone git://github.com/tianocore/edk2.git
+  840  cd edk2/
+  841  source ./edksetup.sh
+  842  make -C BaseTools/
+  843  history
+  844  build -a X64 -t GCC48 -b RELEASE -p OvmfPkg/OvmfPkgX64.dsc
+  845  cd
+  846  rm -f edk2/
+  847  rm -rf edk2/
+  848  cd src/
+  849  ll
+  850  cd edk2/
+  851  history
+  852  build -a X64 -t GCC48 -b RELEASE -p OvmfPkg/OvmfPkgX64.dsc
+  853  source ./edksetup.sh
+  854  cd ..
+  855  rm -rf edk2/
+  856  ll
+  857  history
+  858  git clone git://github.com/tianocore/edk2.git
+  859  cd edk2/
+  860  source ./edksetup.sh
+  861  ll edksetup.*
+  862  ./edksetup.sh
+  863  vim edksetup.
+  864  vim edksetup.sh 
+  865  ll
+  866  source ./edksetup.sh
+  867  man source
+  868  source
+  869  ll source
+  870  sudo apt-get install iasl
+  871  cd
+  872  cd /etc/qem
+  873  cd
+  874  mkdir ~/src
+  875  ll
+  876  cd ~/src
+  877  history
+  878  cd edk2/
+  879  make -C BaseTools/
+  880  . edksetup.sh
+  881  ./edksetup.sh
+  882  source ./edksetup.sh
+  883  cd BaseTools/
+  884  ll 
+  885  BuildEnv
+  886  cd ..
+  887  ll
+  888  source edksetup.sh
+  889  source ./edksetup.sh
+  890  make -C BaseTools/
+  891  build -a X64 -t GCC48 -b RELEASE -p OvmfPkg/OvmfPkgX64.dsc
+  892  ll
+  893  vim edksetup.sh 
+  894  cd
+  895  sudo apt-get install edk2-ovmf
+  896  cd /etc/libvirt/qemu/
+  897  ll
+  898  cd ..
+  899  ll
+  900  vim qemu-conf
+  901  vim qemu.conf 
+  902  sudo vim qemu.conf 
+  903  history
+  904  sudo apt purge edk2-ovmf
+  905  history
+  906  sudo apt purge pacman
+  907  sudo apt purge ovmf-git
+  908  reboot
+  909  cd /usr/share/ovmf/
+  910  ll
+  911  cd ..
+  912  ll
+  913  ll |less
+  914  cd OVMF/
+  915  ll
+  916  sudo apt-get install ovmf-git
+  917  sudo apt-get update
+  918  sudo apt-get purge ovmf
+  919  sudo apt-get purge -f ovmf
+  920  sudo pt autoremove ovmf
+  921  sudo apt autoremove ovmf
+  922  cd
+  923  wget https://ubuntu.pkgs.org/16.04/ubuntu-multiverse-amd64/ovmf0-20160408.ffea0a2c-2_all.deb
+  924  ifconfig
+  925  ifconfig |eno1
+  926  ifconfig eno1
+  927  ifconfig eno3
+  928  ifconfig|less
+  929  cd
+  930  ll
+  931  ll ovmf*
+  932  dpkg -i ovmf_0~20160408.ffea0a2c-2_all.deb 
+  933  sudo dpkg -i ovmf_0~20160408.ffea0a2c-2_all.deb 
+  934  sudo apt-get install -f -y
+  935  sudo apt-get update
+  936  sudo apt-get install -f -y
+  937  sudo dpkg -i ovmf_0~20160408.ffea0a2c-2_all.deb 
+  938  sudo apt-get install ovmf
+  939  virt-manager
+  940  ll
+  941  ll *.deb
+  942  ll
+  943  dpkg -i ovmf_0~20160408.ffea0a2c-2_all.deb 
+  944  sudo dpkg -i ovmf_0~20160408.ffea0a2c-2_all.deb 
+  945  sudo apt-get install -f 
+  946  sudo apt-get update
+  947  sudo apt-get install -f 
+  948  sudo dpkg -i ovmf_0~20160408.ffea0a2c-2_all.deb 
+  949  sudo apt-get install -f 
+  950  sudo systemctl restart libvirt-bin
+  951  virt-manager
+  952  ll
+  953  cd ovmf-x64-edk2-files/
+  954  ll
+  955  alien edk2.git-ovmf-x64-0-20181121.786.g72e514c907.noarch.rpm 
+  956  sudo alien edk2.git-ovmf-x64-0-20181121.786.g72e514c907.noarch.rpm 
+  957  ll
+  958  sudo dpkg -i edk2.git-ovmf-x64_0-20181122.786_all.deb 
+  959  ll
+  960  sudo apt-get install -f
+  961  cd ..
+  962  ll |less
+  963  cd .rpmdb/
+  964  ll
+  965  cat Basenames 
+  966  exit
+  967  ll
+  968  cd /etc/libvirt/
+  969  ll
+  970  sudo vim qemu.conf 
+  971  ll ~/ovmf-x64-edk2-files/
+  972  cd
+  973  cd /usr/share/qemu
+  974  ll
+  975  sudo apt-get install rpm2cpio
+  976  rpm2cpio ovmf-x64-edk2-files/edk2.git-ovmf-x64-0-20181121.786.g72e514c907.noarch.rpm 
+  977  rpm2cpio ovmf-x64-edk2-files/edk2.git-ovmf-x64-0-20181121.786.g72e514c907.noarch.rpm | cpio -i --make-directories
+  978  ll
+  979  cd ovmf-x64-edk2-files/
+  980  ll
+  981  cd
+  982  ll
+  983  cd ovmf-x64-edk2-files/
+  984  rpm2cpio edk2.git-ovmf-x64-0-20181121.786.g72e514c907.noarch.rpm  | cpio -i --make-directories
+  985  ll
+  986  cd usr/
+  987  ll
+  988  cd share/
+  989  ll
+  990  cd edk2.git/
+  991  ll
+  992  cd ovmf-x64/
+  993  ll
+  994  cp OVMF-pure-efi.fd  /usr/share/qemu/
+  995  sudo cp OVMF-pure-efi.fd  /usr/share/qemu/
+  996  sudo cp OVMF_VARS-pure-efi.fd  /usr/share/qemu/
+  997  cd /usr/share/qemu
+  998  ll
+  999  sudo rm OVMF.fd 
+ 1000  ll
+ 1001  sudo ln -s OVMF-pure-efi.fd  OVMF.fd
+ 1002  ll
+ 1003  cd /etc/libvirt/
+ 1004  ll
+ 1005  vim qemu.conf 
+ 1006  sudo vim qemu.conf 
+ 1007  virt-manager 
+ 1008  reboot
+ 1009  ll
+ 1010  virt-manager
+ 1011  sudo apt-get purge apparmor
+ 1012  systemctl restart libvirt-bin
+ 1013  virt-manager
+ 1014  reboot
+ 1015  cd /usr/share/ovmf/
+ 1016  ll
+ 1017  cd ..
+ 1018  cd qemu
+ 1019  ll
+ 1020  cd ..
+ 1021  cd qemu-efi/
+ 1022  ll
+ 1023  cd ..
+ 1024  cd qemu
+ 1025  ll
+ 1026  cd
+ 1027  ll *.deb
+ 1028  cd /usr/share/
+ 1029  ll
+ 1030  cd ovmf/
+ 1031  ll
+ 1032  cd ..
+ 1033  cd OVMF/
+ 1034  ll
+ 1035  cd ..
+ 1036  cd qemu
+ 1037  ll
+ 1038  cd
+ 1039  cat /etc/network/interfaces
+ 1040  sudo vim /etc/network/interfaces
+ 1041  apt show qemu-system-x86
+ 1042  virt-manager 
+ 1043  cd /etc/libvirt/
+ 1044  ll
+ 1045  sudo vim qemu.conf 
+ 1046  systemctl restart libvirt-bin
+ 1047  virt-manager
+ 1048  sudo vim qemu.conf 
+ 1049  sudo systemctl restart libvirt.bin.service
+ 1050  sudo systemctl restart libvirt.bin
+ 1051  sudo systemctl restart libvirt-bin
+ 1052  virt-manager
+ 1053  ll
+ 1054  suddo vim qemu.conf 
+ 1055  sudo vim qemu.conf 
+ 1056  sudo systemctl libvirt-bin
+ 1057  sudo systemctl restart libvirt-bin
+ 1058  virt-manager
+ 1059  ll
+ 1060  virt-manager
+ 1061  virsh net-edit default
+ 1062  cd
+ 1063  sudo wget -nH -r --cut-dirs=8 http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/
+ 1064  ll
+ 1065  sudo mkdir /srv/tftp
+ 1066  cd /srv/tftp/
+ 1067  sudo wget -nH -r --cut-dirs=8 http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/
+ 1068  ll
+ 1069  cd
+ 1070  sudo add-apt-repository cloud-archive:pike
+ 1071  sudo apt- update
+ 1072  sudo apt update
+ 1073  sudo apt install tftpd-hpa
+ 1074  sudo service tftpd-hpa status
+ 1075  cd /srv/ft
+ 1076  cd /srv/tftp/
+ 1077  sudo rm -f *.gif index.html* MANIFEST* MD5SUMS* SHA*
+ 1078  ll
+ 1079  cd ../
+ 1080  sudo chmod -R 777 tftp/
+ 1081  sudo chown -R nobody: tftp/
+ 1082  cat /etc/default/tftpd-hpa 
+ 1083  sudo vim /etc/default/tftpd-hpa 
+ 1084  sudo systemct restart tftpd
+ 1085  sudo systemct restart tftpd.service
+ 1086  sudo systemctl restart tftpd.service
+ 1087  sudo systemctl restart tftpd
+ 1088  sudo systemctl restart ftp
+ 1089  sudo systemctl restart tftpd-hpa.service 
+ 1090  journalctl -xe
+ 1091  sudo vim /etc/default/tftpd-hpa 
+ 1092  sudo systemctl restart tftpd-hpa.service 
+ 1093  sudo systemctl status tftpd-hpa.service 
+ 1094  ifconfig
+ 1095  virsh net-edit default
+ 1096  nc 
+ 1097  nc -uvz 192.168.122.1 69
+ 1098  virsh net-edit default
+ 1099  virsh net-destroy default
+ 1100  virsh net-start default
+ 1101  virt-manager
+ 1102  cd
+ 1103  virt-manager 
+ 1104  apt show qemu-system-x86 
+ 1105  /usr/bin/qemu-system-x86_64 --version
+ 1106  ping 172.31.44.238
+ 1107  ping 172.31.44.244
+ 1108  ssh supermicro@172.31.44.244
+ 1109  shutdown -h now
+ 1110  reboot
+ 1111  ifconfig
+ 1112  ifconfig enp1s0f0
+ 1113  cd /etc/network
+ 1114  ll
+ 1115  cat interfaces
+ 1116  sudo ethtool --identify enp1s0f0
+ 1117  ip a |grep enp1s0f0
+ 1118  ping 8.8.8.8
+ 1119  ifconfig
+ 1120  ifconfig enp1s0f0
+ 1121  brctl show
+ 1122  ifconfig enp1s0f0
+ 1123  shutdown -h now
+ 1124  ifonfig enp1s0f0
+ 1125  ifconfig enp1s0f0
+ 1126  ping 8.8.8.8
+ 1127  nslookup yahoo.com
+ 1128  reboot
+ 1129  ifconfig
+ 1130  ifconfig enp1s0f0
+ 1131  reboot
+ 1132  ping 8.8.8.8
+ 1133  nslookup yahoo.com
+ 1134  ifconfig
+ 1135  shutdown -h now
+ 1136  brctl show
+ 1137  ifconfig
+ 1138  sudo adduser cert
+ 1139  virt-manager
+ 1140  clear
+ 1141  history
+supermicro@kvm500:~$ 
+
+
+
+
+---------------
+
